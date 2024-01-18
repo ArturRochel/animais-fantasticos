@@ -28,6 +28,10 @@ body {
   grid-template-columns: 1fr 120px minmax(300px, 800px) 1fr;
 }
 
+body.ativo {
+  font-size: 100rem;
+}
+
 .menu {
   grid-column: 3/ 5;
   margin-top: 2rem;
@@ -73,6 +77,10 @@ body {
   font-weight: 400;
   margin-bottom: 1rem;
   grid-column: 1/ 4;
+}
+
+.titulo.vermelho {
+  color: red;
 }
 
 .animais h2 {

@@ -1,20 +1,26 @@
-// Adicione a classe ativo a todos os itens do menu
-const itensMenu = document.querySelectorAll(".menu ul li");
+// Duplique o menu e adicione ele em copy
+const menu = document.querySelector(".menu");
+const copy = document.querySelector(".copy");
+const cloneMenu = menu.cloneNode(true);
 
-itensMenu.forEach((item) => item.classList.add("ativo"));
-// Remove a classe ativo de todos os itens do menu e mantenha apenas no primeiro
-itensMenu.forEach((item) => {
-  item === itensMenu[0]
-    ? console.log("É o primeiro")
-    : item.classList.remove("ativo");
-});
-// Verifique se as imagens possuem o atributo alt
-const imagens = document.querySelectorAll("img");
+copy.appendChild(cloneMenu);
+// Selecione o primeiro DT da dl de Faq
+const faq = document.querySelector(".faq");
+const firstDt = faq.querySelector("dt");
 
-imagens.forEach((img) => {
-  img.hasAttribute("alt") ? console.log("Possui") : console.log("Não possui");
-});
-// Modifique o href do link externo no menu
-const firstLink = document.querySelector("a");
+console.log(firstDt.innerText);
+// Selecione o DD referente ao primeiro DT
+const firstDd = firstDt.nextElementSibling;
+console.log(firstDd.innerText);
+// Substitua o conteúdo html de .faq pelo de .animais
+const animais = document.querySelector(".animais");
 
-firstLink.setAttribute("href", "https://github.com/ArturRochel");
+faq.innerHTML = animais.innerHTML;
+
+// Crie um novo titulo e adicione após o primeiro titulo de animais
+const newTittle = document.createElement("h1");
+
+newTittle.innerText = "Esse será o seu ano!";
+newTittle.classList.add("titulo");
+
+animais.appendChild(newTittle);
