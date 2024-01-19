@@ -1,26 +1,88 @@
-// Duplique o menu e adicione ele em copy
-const menu = document.querySelector(".menu");
-const copy = document.querySelector(".copy");
-const cloneMenu = menu.cloneNode(true);
+// Navegação Imagens Animais
+function initTabNav() {
+  const tabMenu = document.querySelectorAll(".js-tabmenu li");
+  const tabContent = document.querySelectorAll(".js-tabcontent section");
 
-copy.appendChild(cloneMenu);
-// Selecione o primeiro DT da dl de Faq
-const faq = document.querySelector(".faq");
-const firstDt = faq.querySelector("dt");
+  if (tabMenu.length && tabContent.length) {
+    activeTab(0);
 
-console.log(firstDt.innerText);
-// Selecione o DD referente ao primeiro DT
-const firstDd = firstDt.nextElementSibling;
-console.log(firstDd.innerText);
-// Substitua o conteúdo html de .faq pelo de .animais
-const animais = document.querySelector(".animais");
+    function activeTab(index) {
+      tabContent.forEach((content) => {
+        content.classList.remove("active");
+      });
+      tabContent[index].classList.add("active");
+    }
 
-faq.innerHTML = animais.innerHTML;
+    tabMenu.forEach((imgMenu, index) => {
+      imgMenu.addEventListener("click", () => {
+        activeTab(index);
+      });
+    });
+  }
+}
 
-// Crie um novo titulo e adicione após o primeiro titulo de animais
-const newTittle = document.createElement("h1");
+initTabNav();
+// Accordeon List
+function initAccordionList() {
+  const accordionList = document.querySelectorAll(".js-accordion dt");
+  if (accordionList.length) {
+    accordionList[0].classList.add("active");
+    accordionList[0].nextElementSibling.classList.add("active");
 
-newTittle.innerText = "Esse será o seu ano!";
-newTittle.classList.add("titulo");
+    function accordionAnswer() {
+      this.classList.toggle("active");
+      this.nextElementSibling.classList.toggle("active");
+    }
 
-animais.appendChild(newTittle);
+    accordionList.forEach((item) => {
+      item.addEventListener("click", accordionAnswer);
+    });
+  }
+}
+initAccordionList();
+
+// Scroll Suave Links Internos
+function initScrollSmooth() {
+  const linksInternos = document.querySelectorAll('.js-menu a[href^="#"]');
+
+  function scrollToSection(event) {
+    event.preventDefault();
+    const href = this.getAttribute("href");
+    const section = document.querySelector(href);
+
+    section.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  }
+
+  linksInternos.forEach((link) => {
+    link.addEventListener("click", scrollToSection);
+  });
+}
+
+initScrollSmooth();
+
+// Animação ao Scroll
+function animationScroll() {
+  const sections = document.querySelectorAll(".js-scroll");
+  if (sections.length) {
+    const windowTarget = window.innerHeight * 0.5;
+
+    function animaScroll() {
+      sections.forEach((section) => {
+        const sectionTop = section.getBoundingClientRect().top;
+        const isSectionVisible = sectionTop - windowTarget < 0;
+        if (isSectionVisible) {
+          section.classList.add("active");
+        }
+      });
+    }
+
+    animaScroll();
+
+    window.addEventListener("scroll", animaScroll);
+  }
+}
+
+animationScroll();
