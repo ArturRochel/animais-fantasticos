@@ -263,10 +263,11 @@ body.ativo {
 
 .js-accordion dt.active::after {
   display: inline-block;
-  color: blue;
+  color: #66e600;
   transform: rotate(180deg);
   content: "⮝";
   margin-left: 20px;
+  text-shadow: 0.5px 0.5px 2px black;
 }
 
 .js .js-accordion dd {

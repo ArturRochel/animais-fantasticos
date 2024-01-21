@@ -2,7 +2,6 @@
 function initTabNav() {
   const tabMenu = document.querySelectorAll(".js-tabmenu li");
   const tabContent = document.querySelectorAll(".js-tabcontent section");
-
   if (tabMenu.length && tabContent.length) {
     activeTab(0);
 
@@ -22,6 +21,7 @@ function initTabNav() {
 }
 
 initTabNav();
+
 // Accordeon List
 function initAccordionList() {
   const accordionList = document.querySelectorAll(".js-accordion dt");
@@ -43,7 +43,7 @@ initAccordionList();
 
 // Scroll Suave Links Internos
 function initScrollSmooth() {
-  const linksInternos = document.querySelectorAll('.js-menu a[href^="#"]');
+  const linksInternos = document.querySelectorAll('a[href^="#"]');
 
   function scrollToSection(event) {
     event.preventDefault();
@@ -60,19 +60,16 @@ function initScrollSmooth() {
     link.addEventListener("click", scrollToSection);
   });
 }
-
 initScrollSmooth();
-
 // Animação ao Scroll
-function animationScroll() {
+function initAnimationScroll() {
   const sections = document.querySelectorAll(".js-scroll");
+  const halfWindow = window.innerHeight * 0.5;
   if (sections.length) {
-    const windowTarget = window.innerHeight * 0.5;
-
     function animaScroll() {
       sections.forEach((section) => {
         const sectionTop = section.getBoundingClientRect().top;
-        const isSectionVisible = sectionTop - windowTarget < 0;
+        const isSectionVisible = sectionTop - halfWindow < 0;
         if (isSectionVisible) {
           section.classList.add("active");
         }
@@ -84,5 +81,4 @@ function animationScroll() {
     window.addEventListener("scroll", animaScroll);
   }
 }
-
-animationScroll();
+initAnimationScroll();
