@@ -83,75 +83,25 @@ function initAnimationScroll() {
 }
 initAnimationScroll();
 
-// Utilizando o foreach na array abaixo,
-// some os valores de Taxa e os valores de Recebimento
+// Retorne um número aleatório
+// entre 1050 e 2000
 
-const transacoes = [
-  {
-    descricao: 'Taxa do Pão',
-    valor: 'R$ 39',
-  },
-  {
-    descricao: 'Taxa do Mercado',
-    valor: 'R$ 129',
-  },
-  {
-    descricao: 'Recebimento de Cliente',
-    valor: 'R$ 99',
-  },
-  {
-    descricao: 'Taxa do Banco',
-    valor: 'R$ 129',
-  },
-  {
-    descricao: 'Recebimento de Cliente',
-    valor: 'R$ 49',
-  },
-];
+const random = Math.floor(Math.random() * (2000 - 1050 + 1)) + 1050
+console.log(random)
+// Retorne o maior número da lista abaixo
+const numeros = '4, 5, 20, 8, 9';
+const newNumbers = numeros.split(', ')
+const testeNumbers = Number.parseFloat(newNumbers)
+console.log(testeNumbers)
+// Crie uma função para limpar os preços
+// e retornar os números com centavos arredondados
+// depois retorne a soma total
+const listaPrecos = ['R$ 59,99', ' R$ 100,222',
+                     'R$ 230  ', 'r$  200'];
 
-let valueTax = 0
-let valueReci = 0
-
-transacoes.forEach((item) => {
-  const clearNumber = +item.valor.replace('R$ ', '')
-  if(item.descricao.slice(0, 4) === 'Taxa'){
-    valueTax += clearNumber
-  } else if(item.descricao.slice(0, 4) === 'Rece'){
-    valueReci += clearNumber
-  }
+                     
+listaPrecos.forEach((preco) => {
+  const clean = preco.toLowerCase().replace('r$ ', '').trim()
+  const toNumber = Number.parseFloat(clean)
+  console.log(toNumber)
 })
-
-console.log(`Esse é o valor total de taxa: R$ ${valueTax}`)
-console.log(`Esse é o valor total de recebimentos: R$ ${valueReci}`)
-// Retorne uma array com a lista abaixo
-const transportes = 'Carro;Avião;Trem;Ônibus;Bicicleta';
-const transportesArray = transportes.split(';')
-console.log(transportesArray)
-// Substitua todos os span's por a's
-const html = `<ul>
-                <li><span>Sobre</span></li>
-                <li><span>Produtos</span></li>
-                <li><span>Contato</span></li>
-              </ul>`;
-const htmlAs = html.split('span')
-const htmlNovo = htmlAs.join('section')
-// Retorne o último caracter da frase
-const frase = 'Melhor do ano!';
-const oUltimo = frase[frase.length - 1]
-console.log(oUltimo)
-// Retorne o total de taxas
-const transacoes2 = ['Taxa do Banco', '   TAXA DO PÃO', '  taxa do mercado', 'depósito Bancário', 'TARIFA especial'];
-
-let totalTaxas = 0
-let outrasTaxas = 0
-transacoes2.forEach((item) => {
-  const fraseLimpa = item.toLowerCase()
-  if(fraseLimpa.includes('taxa')){
-    totalTaxas += 1
-  } else {
-    outrasTaxas += 1
-  }
-})
-
-console.log(totalTaxas)
-console.log(outrasTaxas)
