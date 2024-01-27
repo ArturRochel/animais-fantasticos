@@ -83,25 +83,55 @@ function initAnimationScroll() {
 }
 initAnimationScroll();
 
-// Retorne um número aleatório
-// entre 1050 e 2000
+const comidas = ['Pizza', 'Frango', 'Carne', 'Macarrão'];
+// Remova o primeiro valor de comidas e coloque em uma variável
+// Remova o último valor de comidas e coloque em uma variável
+// Adicione 'Arroz' ao final da array
+// Adicione 'Peixe' e 'Batata' ao início da array
+const first = comidas.shift()
+const last = comidas.pop()
 
-const random = Math.floor(Math.random() * (2000 - 1050 + 1)) + 1050
-console.log(random)
-// Retorne o maior número da lista abaixo
-const numeros = '4, 5, 20, 8, 9';
-const newNumbers = numeros.split(', ')
-const testeNumbers = Number.parseFloat(newNumbers)
-console.log(testeNumbers)
-// Crie uma função para limpar os preços
-// e retornar os números com centavos arredondados
-// depois retorne a soma total
-const listaPrecos = ['R$ 59,99', ' R$ 100,222',
-                     'R$ 230  ', 'r$  200'];
+console.log(first)
+console.log(last)
 
-                     
-listaPrecos.forEach((preco) => {
-  const clean = preco.toLowerCase().replace('r$ ', '').trim()
-  const toNumber = Number.parseFloat(clean)
-  console.log(toNumber)
-})
+comidas.push('Arroz')
+comidas.unshift('Peixe', 'Batata')
+console.log(comidas)
+
+const estudantes = ['Marcio', 'Brenda', 'Joana', 'Kleber', 'Julia'];
+// Arrume os estudantes em ordem alfabética
+// Inverta a ordem dos estudantes
+// Verifique se Joana faz parte dos estudantes
+// Verifique se Juliana faz parte dos estudantes
+estudantes.sort()
+estudantes.reverse()
+console.log(estudantes)
+
+if(estudantes.includes('Joana')){
+  console.log('Joana é uma das estudantes')
+}
+if(estudantes.includes('Juliana')){
+  console.log('Juliana é uma das estudantes')
+} else {
+  console.log('Juliana não é uma das estudantes')
+}
+
+let html = `<section>
+              <div>Sobre</div>
+              <div>Produtos</div>
+              <div>Contato</div>
+            </section>`
+// Substitua section por ul e div com li,
+// utilizando split e join
+const sectionToUl = html.split('section').join('ul')
+const newHtml = sectionToUl.split('div').join('li')
+
+console.log(newHtml)
+
+const carros = ['Ford', 'Fiat', 'VW', 'Honda'];
+// Remova o último carro, mas antes de remover
+// salve a array original em outra variável
+const carrosOriginais = carros.slice()
+carros.pop()
+console.log(carros)
+console.log(carrosOriginais)
