@@ -122,9 +122,9 @@ body.ativo {
 }
 
 .animais-lista::-webkit-scrollbar-thumb {
-  background: #5259ff;
-  border-left: 4px solid #0e0080;
-  border-right: 4px solid #0e0080;
+  background: #C2C2C2;
+  border-left: 4px solid white;
+  border-right: 4px solid white;
 }
 
 .animais-lista::-webkit-scrollbar-track {
@@ -233,27 +233,43 @@ body.ativo {
   }
 }
 
-.js .js-tabcontent section {
+.js [data-tab="content"] section {
   display: none;
 }
 
-.js-tabcontent section.active {
+[data-tab="content"] section.active.show-right {
   display: block;
-  animation: animationTab 0.8s forwards;
+  animation: show-right 0.8s forwards;
 }
 
-@keyframes animationTab {
+[data-tab="content"] section.active.show-down {
+  display: block;
+  animation: show-down 0.8s forwards;
+}
+
+@keyframes show-right {
   from {
     opacity: 0;
-    transform: translateX(-30px);
+    transform: translate3d(-30px, 0, 0);
   }
   to {
     opacity: 1;
-    transform: translateX(0px);
+    transform: translate3d(0, 0, 0);
   }
 }
 
-.js-accordion dt::after {
+@keyframes show-down {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -30px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+[data-anime="accordion"] dt::after {
   display: inline-block;
   color: darkred;
   content: "⮝";
@@ -261,7 +277,7 @@ body.ativo {
   transition: 0.5s;
 }
 
-.js-accordion dt.active::after {
+[data-anime="accordion"] dt.active::after {
   display: inline-block;
   color: #66e600;
   transform: rotate(180deg);
@@ -270,11 +286,11 @@ body.ativo {
   text-shadow: 0.5px 0.5px 2px black;
 }
 
-.js .js-accordion dd {
+.js [data-anime="accordion"] dd {
   display: none;
 }
 
-.js-accordion dd.active {
+[data-anime="accordion"] dd.active {
   display: block;
   animation: animationDd 0.5s forwards;
 }
@@ -292,13 +308,13 @@ body.ativo {
   }
 }
 
-.js .js-scroll {
+.js [data-anime='scroll'] {
   opacity: 0;
   transform: translate3d(-30px, 0px, 0px);
   transition: 0.5s;
 }
 
-.js .js-scroll.active {
+.js [data-anime='scroll'].active {
   opacity: 1;
   transform: translate3d(0px, 0px, 0px);
 }
