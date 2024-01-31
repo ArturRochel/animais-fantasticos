@@ -1,15 +1,11 @@
 import initScrollSmooth  from './modules/scroll-suave.js'
+import initAnimationScroll from './modules/animacao-scroll.js'
+import initAccordionList from './modules/accordion.js'
+import initTabNav from './modules/nav-img.js'
+import initModal from './modules/modal.js'
 
 initScrollSmooth();
-
-import initAnimationScroll from './modules/animacao-scroll.js'
-
 initAnimationScroll();
-
-import initAccordionList from './modules/accordion.js'
-
 initAccordionList();
-
-import initTabNav from './modules/nav-img.js'
-
 initTabNav();
+initModal()

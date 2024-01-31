@@ -7,20 +7,20 @@
     <meta name="description" content="O site dos Animais Fantásticos foi desenvolvido para aprender JavaScript">
     <title>Testes javaScript</title>
     <script> document.documentElement.className += ' js'</script>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Playfair+Display+SC:wght@400;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <div>Propriedade Artur.dev - Copyright 2024</div>
+    <div class="grid-container">
     <nav class="menu js-menu">
         <ul>
             <li><a href="#animais">Animais</a></li>
             <li><a href="#faq">Faq</a></li>
             <li><a href="#contato">Contato</a></li>
-            <li><a href="https://arturrochel.github.io/assisvariedades/">Login</a></li>
+            <li><a data-modal="abrir" href="https://arturrochel.github.io/assisvariedades/">Login</a></li>
         </ul>
     </nav>
 
@@ -124,7 +124,20 @@
         <p>Todos os direitos reservados Artur.Dev</p>
     </footer>
 
-    <script type="module" src="js/script.js"></script>
+    <section class="modal-container" data-modal="container">
+        <div class="modal">
+            <button class="fechar" data-modal="fechar">X</button>
+            <form action="">
+                <label for="email">Email </label>
+                <input type="text" name="email" id="email">
+                <label for="senha">Senha</label>
+                <input type="password" name="senha" id="senha">
+                <button type="submit">Entrar</button>
+            </form>
+        </div>
+    </section>
+    </div>
+    <script type="module" src="./js/script.js"></script>
 
     
 </body>
