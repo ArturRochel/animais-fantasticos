@@ -5,11 +5,13 @@ export default function initScrollSmooth() {
       event.preventDefault();
       const href = this.getAttribute("href");
       const section = document.querySelector(href);
-  
-      section.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
+      
+      if(section !== null){
+        section.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }
     }
   
     linksInternos.forEach((link) => {
