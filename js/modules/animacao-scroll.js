@@ -9,6 +9,9 @@ export default function initAnimationScroll() {
           if (isSectionVisible) {
             section.classList.add("active");
           }
+          else if(section.classList.contains("active")){
+            section.classList.remove('active')
+          }
         });
       }
   
